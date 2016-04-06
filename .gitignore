@@ -26,6 +26,9 @@ target/
 *.patch
 *.tmp
 
+# out
+*.calss
+
 # system ignore
 .DS_Store
 Thumbs.db
