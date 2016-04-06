@@ -15,7 +15,7 @@ public class Calculator implements Runnable{
     public void run() {
         for(int i=0; i<=10; i++) {
             int temp = i*number;
-            System.out.println( Thread.currentThread().getId()+ ":" + number + "*" + i + "="+ temp);
+            System.out.println( "Thread" + Thread.currentThread().getId()+ ":" + number + "*" + i + "="+ temp);
         }
     }
 }

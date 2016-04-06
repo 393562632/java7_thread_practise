@@ -8,11 +8,11 @@ import java.io.PrintWriter;
 public class ThreadInfo {
 
     public static void writeThreadInfo(PrintWriter pw, Thread thread, Thread.State state) {
-        pw.printf("Main : **********************************************");
+        pw.printf("Main : **********************************************\n");
         pw.printf("Main : Id %d - %s\n", thread.getId(), thread.getName());
         pw.printf("Main : Priority: %d\n", thread.getPriority());
-        pw.printf("Main : Old State: %d\n", state);
-        pw.printf("Main : New State: %d\n", thread.getState());
-        pw.printf("Main : **********************************************");
+        pw.printf("Main : Old State: %s\n", state);
+        pw.printf("Main : New State: %s\n", thread.getState());
+        pw.printf("Main : **********************************************\n");
     }
 }

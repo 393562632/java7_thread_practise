@@ -1,6 +1,7 @@
 package com.java7.current.chapter1.case1_3;
 
 import com.java7.current.chapter1.service.Calculator;
+import com.java7.current.util.ThreadInfo;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -39,9 +40,11 @@ public class Case1_3 {
 
         //把十个文件的状态写入文件当中
         for(int i=0; i<10 ;i++) {
-            pw.printf("Main : Status of Thread " + "i" + ":" + threads[i].getState());
+            pw.printf("Main : Status of Thread " + i + ":" + threads[i].getState());
+            pw.println("    init end");
             status[i] = threads[i].getState();
         }
+
 
         //开始执行10个线程
         for(int i = 0; i<10; i++) {
@@ -50,9 +53,14 @@ public class Case1_3 {
 
         //线程运行结束后，只要有一个线程执行完毕就把状态写入文件
         while(!finish) {
-
+             for(int i=0; i<10; i++) {
+                 ThreadInfo.writeThreadInfo(pw, threads[i], status[i]);
+                 status[i] = threads[i].getState();
+             }
+            finish = true;
+            for(int i=0; i<10; i++) {
+                finish = finish && (threads[i].getState() == Thread.State.TERMINATED);
+            }
         }
     }
-
-
 }
