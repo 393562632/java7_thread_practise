@@ -22,7 +22,7 @@ public class Case1_3 {
         for(int i =0; i<10; i++) {
             threads[i] = new Thread(new Calculator(i));
             if(i%2 == 0) {
-                threads[i].setPriority(Thread.MAX_PRIORITY);
+                   threads[i].setPriority(Thread.MAX_PRIORITY);
             }else {
                 threads[i].setPriority(Thread.MIN_PRIORITY);
             }
