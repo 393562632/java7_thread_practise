@@ -13,7 +13,8 @@ target/
 .classpath
 
 # idea ignore
-.idea/
+.idea
+.idea/*.xml
 *.ipr
 *.iml
 *.iws
