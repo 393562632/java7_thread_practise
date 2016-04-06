@@ -17,7 +17,7 @@ public class FileSearch implements Runnable {
         this.fileName = fileName;
     }
 
-    @Override
+
     public void run() {
         File file = new File(initPath);
         if(file.isDirectory()) {
