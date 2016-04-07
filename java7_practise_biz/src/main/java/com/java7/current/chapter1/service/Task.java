@@ -5,7 +5,8 @@ package com.java7.current.chapter1.service;
  */
 public class Task implements Runnable {
     public void run() {
-        int number = Integer.parseInt("TTTT");
         System.out.println("++++++++++++++++++++++++++++++++++++++++");
+        int number = Integer.parseInt("TTTT");
+        System.out.printf("++++++++++++++++++++++++++++++++++++++");
     }
 }
