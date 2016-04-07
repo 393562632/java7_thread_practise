@@ -27,7 +27,7 @@ public class CleanerTask extends Thread {
         long difference;
         boolean delete;
         if(deque.size() == 0) return;
-        delete = true;
+        delete = false;
         do {
             Event event = deque.getLast();
             difference = date.getTime() - event.getDate().getTime();
@@ -41,6 +41,4 @@ public class CleanerTask extends Thread {
             System.out.printf("Cleaner : size of the queue: %d\n", deque.size());
         }
     }
-
-
 }
