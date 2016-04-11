@@ -1,6 +1,7 @@
 package com.java7.current.util;
 
 import java.io.PrintWriter;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by dell on 2016/4/1.
@@ -14,5 +15,15 @@ public class ThreadInfo {
         pw.printf("Main : Old State: %s\n", state);
         pw.printf("Main : New State: %s\n", thread.getState());
         pw.printf("Main : **********************************************\n");
+    }
+
+    public static void waitFinish(ThreadGroup threadGroup) {
+        while(threadGroup.activeCount() > 9) {
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

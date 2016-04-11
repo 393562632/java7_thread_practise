@@ -26,7 +26,6 @@ public class SearchTask implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
     }
 
     private void doTask() throws InterruptedException{
