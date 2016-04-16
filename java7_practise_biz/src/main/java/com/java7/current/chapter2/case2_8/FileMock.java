@@ -14,8 +14,7 @@ public class FileMock {
         for(int i=0; i<size; i++) {
             StringBuilder buffer = new StringBuilder(length);
             for(int j=0; j<length; j++) {
-                int indice = (int)Math.random() * 255 ;
-                System.out.println(indice);
+                int indice = (int)(Math.random() * 255);
                 buffer.append((char)indice);
             }
             content[i] = buffer.toString();

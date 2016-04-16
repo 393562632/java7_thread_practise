@@ -52,7 +52,7 @@ public class Buffer {
             if(hasappendingLines()) {
                 line = buffer.poll();
                 System.out.printf("%s: Line Readed %d\n", Thread.currentThread().getName(),buffer.size());
-                space.notifyAll();
+                space.signalAll();
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
