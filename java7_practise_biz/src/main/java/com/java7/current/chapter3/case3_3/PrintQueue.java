@@ -9,11 +9,8 @@ import java.util.concurrent.locks.ReentrantLock;
  * Created by lenovo on 2016/4/18.
  */
 public class PrintQueue {
-
     private boolean freePrinters[];
-
     private Lock lockPrinters;
-
     private final Semaphore semaphore;
 
     public PrintQueue() {
