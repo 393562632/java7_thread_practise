@@ -14,4 +14,11 @@ public class RandomTest {
         Double data = random.nextDouble();
         System.out.println(data);
     }
+
+    @Test
+    public void test1() {
+        int a = 95;
+        int b = 95/2;
+        System.out.printf("b:" + b + "\n");
+    }
 }
