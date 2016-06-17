@@ -1,4 +1,4 @@
-package com.java7.current.chapter8;
+package com.java7.current.chapter8.case8_1;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;

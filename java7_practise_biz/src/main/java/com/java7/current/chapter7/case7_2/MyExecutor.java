@@ -16,7 +16,7 @@ public class MyExecutor extends ThreadPoolExecutor {
                       TimeUnit unit,
                       BlockingQueue<Runnable> workQueue) {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue);
-        startTimes=new ConcurrentHashMap<>();
+        startTimes=new ConcurrentHashMap<String, Date>();
     }
 
     @Override
@@ -49,7 +49,9 @@ public class MyExecutor extends ThreadPoolExecutor {
             long diff=finishDate.getTime()-startDate.getTime();
             System.out.printf("MyExecutor: Duration: %d\n",diff);
             System.out.printf("**************************\n");
-        } catch (InterruptedException | ExecutionException e) {
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
             e.printStackTrace();
         }
     }

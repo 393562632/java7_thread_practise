@@ -10,7 +10,7 @@ import java.util.concurrent.*;
 public class Case4_11 {
     public static void main(String[] args) {
         ExecutorService executor = Executors.newCachedThreadPool();
-        CompletionService<String> service = new ExecutorCompletionService<>(executor);
+        CompletionService<String> service = new ExecutorCompletionService<String>(executor);
         ReportRequest faceRequest = new ReportRequest("Face", service);
         ReportRequest onlineRequest = new ReportRequest("Online", service);
         Thread faceThread = new Thread(faceRequest);

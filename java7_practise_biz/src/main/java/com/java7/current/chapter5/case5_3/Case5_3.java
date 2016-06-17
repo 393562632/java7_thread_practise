@@ -36,7 +36,9 @@ public class Case5_3 {
         }
         try {
             System.out.printf("Main： The word appears %d in the document", task.get());
-        } catch (InterruptedException | ExecutionException e) {
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
             e.printStackTrace();
         }
     }

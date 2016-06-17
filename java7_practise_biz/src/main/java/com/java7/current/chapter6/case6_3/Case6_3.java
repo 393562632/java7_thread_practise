@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class Case6_3 {
     public static void main(String[] args) throws Exception {
-        LinkedBlockingDeque<String> list = new LinkedBlockingDeque<>(3);
+        LinkedBlockingDeque<String> list = new LinkedBlockingDeque<String>(3);
         Client client = new Client(list);
         Thread thread = new Thread(client);
         thread.start();

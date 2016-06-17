@@ -32,7 +32,9 @@ public class DocumentTask extends RecursiveTask<Integer> {
             invokeAll(task1, task2);
             try {
                 result = groupResult(task1.get(), task2.get());
-            } catch (InterruptedException | ExecutionException e) {
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
                 e.printStackTrace();
             }
         }
@@ -57,7 +59,9 @@ public class DocumentTask extends RecursiveTask<Integer> {
             LineTask task = tasks.get(i);
             try {
                 result = result + task.get();
-            } catch (InterruptedException | ExecutionException e) {
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
                 e.printStackTrace();
             }
         }

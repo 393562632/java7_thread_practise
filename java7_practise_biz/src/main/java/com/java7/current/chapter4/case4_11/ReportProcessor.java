@@ -25,7 +25,9 @@ public class ReportProcessor implements Runnable {
                     String report = result.get();
                     System.out.printf("ReportReceiver: Report Received:%s\n", report);
                 }
-            } catch (InterruptedException | ExecutionException e ) {
+            } catch (InterruptedException e ) {
+                e.printStackTrace();
+            } catch (ExecutionException e ) {
                 e.printStackTrace();
             }
         }

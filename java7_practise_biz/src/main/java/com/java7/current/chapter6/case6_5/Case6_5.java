@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class Case6_5 {
     public static void main(String[] args) throws Exception {
-        DelayQueue<Event> queue = new DelayQueue<>();
+        DelayQueue<Event> queue = new DelayQueue<Event>();
         Thread threads[] = new Thread[5];
         for (int i = 0; i < threads.length; i++) {
             Task task = new Task(i + 1, queue);

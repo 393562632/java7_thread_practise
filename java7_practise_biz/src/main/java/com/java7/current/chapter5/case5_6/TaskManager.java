@@ -15,7 +15,7 @@ public class TaskManager {
     }
 
     public TaskManager() {
-        tasks = new ArrayList<>();
+        tasks = new ArrayList();
     }
 
     public void addTask(ForkJoinTask<Integer> task) {

@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class Case7_2 {
     public static void main(String[] args) {
         MyExecutor myExecutor=new MyExecutor(2, 4, 1000, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<Runnable>());
-        List<Future<String>> results=new ArrayList<>();
+        List<Future<String>> results=new ArrayList<Future<String>>();
         for (int i=0; i<10; i++) {
             SleepTwoSecondTask task=new SleepTwoSecondTask();
             Future<String> result=myExecutor.submit(task);
@@ -26,7 +26,9 @@ public class Case7_2 {
             try {
                 String result = results.get(i).get();
                 System.out.printf("Main: Result for Task %d : %s\n", i, result);
-            } catch (InterruptedException | ExecutionException e) {
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
                 e.printStackTrace();
             }
         }
@@ -37,7 +39,9 @@ public class Case7_2 {
             try {
                 String result=results.get(i).get();
                 System.out.printf("Main: Result for Task %d : %s\n",i,result);
-            } catch (InterruptedException | ExecutionException e) {
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
                 e.printStackTrace();
             }
         }

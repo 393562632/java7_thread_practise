@@ -1,7 +1,10 @@
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
+import java.util.concurrent.LinkedTransferQueue;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -47,4 +50,37 @@ public class RandomTest {
         long result = firstdif - secondtdif;
         System.out.printf("result: %s\n", result);
     }
+
+    @Test
+    public void testFindbugs() {
+        System.out.printf("+++++++++++++++++++++++=%n");
+        System.out.printf("+++++++++++++++++++++++=%n");
+    }
+
+    /**
+     * 生成容器副本
+     */
+    @Test
+    public void copyList() {
+        List list = new ArrayList();
+        list.add(1);
+        list.add(2);
+        List list1 = new ArrayList(list);
+        if(list == list1) {
+            System.out.printf("true");
+        } else {
+            System.out.printf("false");
+        }
+    }
+
+    @Test
+    public void test2() {
+        LinkedTransferQueue<String> queue = new LinkedTransferQueue<>();
+        try {
+            queue.take();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

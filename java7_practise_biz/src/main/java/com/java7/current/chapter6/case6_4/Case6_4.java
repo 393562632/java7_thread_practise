@@ -7,7 +7,7 @@ import java.util.concurrent.PriorityBlockingQueue;
  */
 public class Case6_4 {
     public static void main(String[] args) {
-        PriorityBlockingQueue<Event> queue = new PriorityBlockingQueue<>();
+        PriorityBlockingQueue<Event> queue = new PriorityBlockingQueue<Event>();
         Thread taskThreads[] = new Thread[5];
         for(int i=0; i<taskThreads.length; i++) {
             Task task = new Task(i,queue);
