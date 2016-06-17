@@ -40,6 +40,7 @@ public class Case6_6 {
         System.out.printf("Main Last Entry: %s: %s\n", contact.getName(), contact.getPhone());
         System.out.printf("Main: Submap from A1996 to B1002:\n");
         ConcurrentNavigableMap<String, Contact> submap = map.subMap("A1996", "B1002");
+<<<<<<< HEAD
         do {
             element = submap.pollFirstEntry();
             if (element != null) {
@@ -47,5 +48,14 @@ public class Case6_6 {
                 System.out.printf("%s: %s\n", contact.getName(), contact.getPhone());
             }
         } while (element != null);
+=======
+        do{
+            element = submap.pollFirstEntry();
+            if(element != null) {
+                contact = element.getValue();
+                System.out.printf("%s: %s\n", contact.getName(), contact.getPhone());
+            }
+        }while(element != null);
+>>>>>>> 0648778a802d68d3a70dd9112452e3fc6a07902a
     }
 }

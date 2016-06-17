@@ -29,7 +29,11 @@ public class Case6_2 {
             threads[i].start();
         }
         System.out.printf("Main: %d PollTask threads have been launch\n", threads.length);
+<<<<<<< HEAD
         for (int i = 0; i < threads.length; i++) {
+=======
+        for (int i = 0; i<threads.length; i++) {
+>>>>>>> 0648778a802d68d3a70dd9112452e3fc6a07902a
             try {
                 threads[i].join();
             } catch (InterruptedException e) {
