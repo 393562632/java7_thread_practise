@@ -1,0 +1,21 @@
+Avoiding deadlocks by ordering locks
+
+When you need to acquire more than one lock in the methods of your application, you must be
+very careful with the order in which you get the control of your locks. A bad choice can lead to
+a deadlock situation.
+
+1. Analyze the previous code. If a thread calls to the operation1() method and
+another thread calls to the operation2() method, you can have a deadlock. If the
+operation1() method executes its first sentence and the operation2() method
+executes its first sentence at the same time, you will have the operation1()
+method waiting to get the control of the lock2 Lock and the operation2() method
+waiting to get the control of the lock1 Lock. Now, you have a deadlock situation.
+
+2. To solve the previous situation, you can follow this rule:
+
+1: If you have to get the control of more than one lock in different operations,
+      try to lock them in the same order in all methods.
+
+2: Then, release them in the inverse order and encapsulate the locks and their
+      unlocks in a single class, so you don't have the synchronization-related code
+      distributed throughout the code.

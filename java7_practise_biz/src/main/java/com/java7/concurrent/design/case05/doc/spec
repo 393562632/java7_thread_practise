@@ -1,0 +1,41 @@
+Delegating to executors the management of threads
+
+Before Java 5, the Java Concurrency API, when we wanted to implement a concurrent
+application, you had to manage the threads for yourself. We implemented the Runnable
+interface or an extension of the Thread class. Then, we created a thread object and started
+its execution using its start() method. We also had to control its status to know if the
+thread finished its execution or it's still running.
+
+In Java Version 5, the concept of executor as a provider of a pool of execution threads
+had appeared. This mechanism, implemented by the Executor and ExecutorService
+interfaces and the ThreadPoolExecutor and ScheduledThreadPoolExecutor
+classes, allows you to concentrate only in the implementation of the logic of the task. You
+implement the task and send it to the executor. It has a pool of threads and it is the one that
+is responsible for the creation, management, and finalization of the threads. In Java Version
+7, another implementation of the Executor mechanism in the Fork/Join framework specialized
+for those problems that can be broken in smaller sub-problems, had appeared. This approach
+has numerous advantages, which are as follows:
+
+1: We don't have to create threads for all the tasks. When we send a task to the
+executor and it's executed by a thread of the pool, we save the time used in the
+creation of a new thread. If our application has to execute a lot of tasks, the total
+saved time will be significant and the performance of the application will be better.
+
+2: As we create less threads, our application also uses less memory. This circumstance
+can also help to get a better performance in our application.
+
+3: We can build the concurrent tasks executed in the executor implementing the
+Runnable interface or the Callable interface. The Callable interface allows
+us to implement tasks that return a result, which provide a big advantage over the
+traditional tasks.
+
+4: When we send a task to an executor, it returns a Future object that allows us to
+know the status of the task, and the returned result if it has finished its execution
+easily.
+
+5: We can schedule our tasks and execute them repeatedly with the special executor
+implemented by the ScheduledThreadPoolExecutor class.
+
+6: We can control easily the resources used by an executor. We can establish the
+maximum number of threads in the pool, so our executor will never have more than
+that number of tasks running at a time.

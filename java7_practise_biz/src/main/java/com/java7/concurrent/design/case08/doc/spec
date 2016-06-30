@@ -1,0 +1,17 @@
+Using Fork/Join framework instead of executors
+
+Executors allow you to avoid the creation and management of threads. You implement tasks
+implementing the Runnable or Callable interfaces and send them to the executor. It has a
+pool of threads and uses one of them to execute the tasks.
+
+Java 7 provides a new kind of executor with the Fork/Join Framework. This kind of executor,
+implemented in the ForkJoinPool class, is designed for those problems that can be split
+into smaller parts using the divide and conquer technique. When you implement a task for
+the Fork/Join framework, you have to check the size of the problem you have to resolve. If
+it's bigger than a predefined size, you divide the problem in two or more sub-problems and
+create as many subtasks as divisions you have made. The task sends those sub-tasks to the
+ForkJoinPool class using the fork() operation and waits for its finalization using the
+join() operation.
+
+For these kind of problems, Fork/Join pools get better performance than classical executors.
+In this recipe, you are going to implement an example where you can check this point.

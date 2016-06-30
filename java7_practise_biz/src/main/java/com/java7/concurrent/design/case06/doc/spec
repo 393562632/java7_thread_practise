@@ -1,0 +1,71 @@
+Using concurrent data structures instead of programming yourself
+
+Data structures are an essential part of every program. You always have to manage data
+in your application that you store in a data structure. Arrays, lists, or trees are examples of
+common data structures. Java API provides a lot of ready-to-use data structures, but when
+you work with concurrent applications, you have to be careful because not all the structures
+provided by the Java API are thread-safe. If you choose a data structure that is not threadsafe,
+you can have inconsistent data in your applications.
+
+When you want to use a data structure in your concurrent application, you have to review the
+documentation of the class that implements that data structure to check that it supports
+concurrent operations. Java provides the following two kinds of concurrent data structures:
+
+Non-blocking data structures: All the operations provided by these data structures
+to insert or take off elements in the data structure, if they can't be done now because
+the data structure is full or empty, return a null value to indicate that the operation
+can't be done now.
+
+Blocking data structures: These data structures provide the same operations
+provided by the non-blocking data structures, but they also provide operations to
+insert and to take off data that, if they can't be done immediately, block the thread
+until the operation can be done.
+
+1: ConcurrentLinkedDeque: It is a non-blocking data structure based on linked
+nodes that allows you to insert data at the beginning or at the end of the structure.
+
+2: LinkedBlockingDeque: It is a blocking data structure based on linked nodes. It
+can have fixed capacity. You can insert elements at the beginning or at the end of
+the structure. It provides operations that, if the operation can't be done immediately,
+blocks the thread until the operation can be done.
+
+3: ConcurrentLinkedQueue: It is a non-blocking queue that allows you to insert
+elements at the end of the queue and take elements from its beginning.
+
+4: ArrayBlockingQueue: A blocking queue with a fixed size. You insert the elements
+at the end of the queue and take elements from its beginning. It provides operations
+that, if the operation can't be done because the queue is full or empty, puts the
+thread to sleep until the operation can be done.
+
+5: LinkedBlockingQueue: A blocking queue that allows you to insert elements at the
+end of the queue and take elements from its beginning. If it provides operations that,
+if the operation can't be done because the queue is full or empty, it puts the thread to
+sleep until the operation can be done.
+
+6: DelayQueue: It is a LinkedBlockingQueue queue with delayed elements. Every
+element inserted in this queue must implement the Delayed interface. An element
+can't be taken from the list until its delay is 0.
+
+7: LinkedTransferQueue: It is a blocking queue that provides operations thought
+to work in situations that can be implemented as a producer/consumer problem. It
+provides operations that, if the operation can't be done because the queue is full or
+empty, puts the thread to sleep until the operation can be done.
+
+8: PriorityBlockingQueue: It is a blocking queue that orders its elements based on
+its priority. All the elements inserted in the queue must implement the Comparable
+interface. The value returned by the compareTo() method will determine the
+position of the element in the queue. As all the blocking data structures, it provides
+operations that, if they can't be done immediately, puts the thread to sleep until they
+can be done.
+
+9: SynchronousQueue: It is a blocking queue, where every insert operation must
+wait for a remove operation for the other thread. The two operations must be done at
+the same time.
+
+10: ConcurrentHashMap: It is a Hash-Map that allows concurrent operations. It's a
+non-blocking data structure.
+
+11: ConcurrentSkipListMap: This data structure associates keys with values. Every
+key can have only one value. It stores the keys in an ordered way and provides a
+method to find elements and to get some elements from the map. It's a non-blocking
+data structure.

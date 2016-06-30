@@ -1,0 +1,17 @@
+Using immutable objects when possible
+
+This mechanism presents the following advantages when you use it in concurrent applications:
+
+1: These objects cannot be modified by more than one thread at a time, so you won't
+need to use any synchronization mechanism to protect the access to their attributes.
+
+2: You won't have any inconsistency data problems. As the attributes of these objects
+won't be modified, you will always have access to a coherent copy of this data.
+
+Follow these steps to implement an immutable class, so you can have immutable objects in your application:
+
+1. Mark the class as final. It may not be extended by another class.
+
+2. All the attributes must be final and private. You can assign a value to an attribute only once.
+
+3. Don't provide methods that can assign a value to an attribute. The attributes must be initialized in the constructor of the class.

@@ -1,0 +1,11 @@
+Using atomic variables instead of synchronization
+
+Java's atomic variables offer a better performance than solutions based on synchronization
+mechanisms. Almost all the classes in the java.util.concurrent package use atomic
+variables instead of synchronization. In this recipe, you will develop an example that shows
+how an atomic attribute has better performance than using synchronization.
+
+1:AtomicBoolean
+2:AtomicInteger
+3:AtomicLong
+4:AtomicReference

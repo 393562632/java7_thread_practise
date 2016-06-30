@@ -1,0 +1,7 @@
+Holding locks as short a time as possible
+
+Locks, as other synchronization mechanisms, allow the definition of a critical section that only
+one thread can execute at a time. You must be very careful to define the critical section. It only
+must include those instructions that really need the mutual exclusion. This is especially true if
+the critical section includes long operations. If the critical section includes lengthy operations
+that do not use shared resources, the application performance will be worse than it could be.

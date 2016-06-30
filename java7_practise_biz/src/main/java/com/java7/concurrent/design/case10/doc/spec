@@ -1,0 +1,18 @@
+Avoiding the use of deprecated methods
+
+Java concurrency API also has deprecated operations. These are operations that were
+included in the first versions of the API, but now you shouldn't use them. They have been
+replaced by other operations that implement better practices than the original ones.
+The most critical deprecated operations are those provided by the Thread class. These
+operations are:
+1: destroy(): In the past, this method destroyed the thread. Actually, it throws a
+NoSuchMethodError exception.
+2: suspend(): This method suspends the execution of the thread until it's resumed.
+3: stop(): This method forces the thread to finish its execution.
+4: resume(): This method resumes the execution of the thread.
+The ThreadGroup class also has some deprecated methods, which are as follows:
+5: suspend(): This method suspends the execution of all the threads that belong to
+this thread group until they have resumed
+6: stop(): This method forces the finish of the execution of all the threads of this
+thread group
+7: resume(): This method resumes the execution of all the threads of this thread group
